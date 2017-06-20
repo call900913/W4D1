@@ -3,8 +3,8 @@ class ArtworksController < ApplicationController
   def index
     @artworks_shared = User.find(params[:user_id]).shared_artworks
     @artworks_owned = User.find(params[:user_id]).artworks
-    render json: @artworks_shared
-    render json: @artworks_owned
+    art = {shared: @artworks_shared, owned: @artworks_owned}
+    render json: art
   end
 
   def create
